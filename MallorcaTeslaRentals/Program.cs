@@ -35,5 +35,5 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
-
+await PrepDbcs.PrepPopulation(app, true);
 app.Run();

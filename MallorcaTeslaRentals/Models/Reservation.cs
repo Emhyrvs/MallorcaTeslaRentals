@@ -3,18 +3,29 @@ using System.Data;
 
 namespace MallorcaTeslaRentals.Models
 {
-    public class Reservation
-    {
-        public Guid Id { get; set; }
-        public Location ReturnLocation { get; set; }
-        public Location PickupLocation { get; set; }
+   
+        public class Reservation
+        {
+            public Guid Id { get; set; }
 
-        public DateTime StartDate { get; set; }
+           
+            public Location ReturnLocation { get; set; }
+            public Guid ReturnLocationId { get; set; }
 
-        public DateTime  EndDate { get; set; }
+           
+            public Location PickupLocation { get; set; }
+            public Guid PickupLocationId { get; set; }
 
-        public required Client Client { get; set; }
+           
+            public DateTime StartDate { get; set; }
+            public DateTime EndDate { get; set; }
 
-        public required Car Car { get; set; }
-    }
+            public Client Client { get; set; }
+            public Guid ClientId { get; set; }
+
+            public Car Car { get; set; }
+            public Guid CarId { get; set; }
+        }
+    
+
 }
