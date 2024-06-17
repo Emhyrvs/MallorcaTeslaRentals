@@ -1,4 +1,5 @@
-﻿using MallorcaTeslaRentals.Models;
+﻿using MallorcaTeslaRentals.Data;
+using MallorcaTeslaRentals.Models;
 using MallorcaTeslaRentals.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 public class ReservationService : IReservationService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly DataDbContext _context;
 
-    public ReservationService(ApplicationDbContext context)
+    public ReservationService(DataDbContext context)
     {
         _context = context;
     }
