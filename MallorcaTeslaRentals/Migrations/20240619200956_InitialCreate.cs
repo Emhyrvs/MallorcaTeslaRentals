@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MallorcaTeslaRentals.Migrations
 {
     /// <inheritdoc />
-    public partial class AddClientModel : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,8 @@ namespace MallorcaTeslaRentals.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModelName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModelName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PriceForDay = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +63,8 @@ namespace MallorcaTeslaRentals.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TotalCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {

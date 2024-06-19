@@ -25,6 +25,8 @@ namespace MallorcaTeslaRentals.Models
 
             public Car Car { get; set; }
             public Guid CarId { get; set; }
+
+        public Decimal TotalCost { get; set; }
         }
     
 

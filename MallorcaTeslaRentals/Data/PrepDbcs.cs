@@ -52,15 +52,21 @@ namespace MallorcaTeslaRentals.Data
                     {
                         Id = Guid.NewGuid(),
                         PostalCode = "12345",
-                        Name = "First Location",
+                        Name = "Palma Airport,",
                         BuildingNumber = 1
                     },
                     new Location
                     {
                         Id = Guid.NewGuid(),
                         PostalCode = "54321",
-                        Name = "Second Location",
+                        Name = "Palma City Center,",
                         BuildingNumber = 2
+                    },
+                    new Location
+                    {
+                        Id = Guid.NewGuid(),
+                        PostalCode ="533222",
+                        Name = "Alcudia and Mancor"
                     }
                     // Dodaj więcej lokalizacji według potrzeb
                 };
@@ -72,14 +78,40 @@ namespace MallorcaTeslaRentals.Data
                     new Car
                     {
                         Id = Guid.NewGuid(),
-                        ModelName = "Tesla Model S"
+                        ModelName = "Tesla Model S",
+                        PriceForDay = 220
+                     
                     },
                     new Car
                     {
                         Id = Guid.NewGuid(),
-                        ModelName = "Tesla Model 3"
-                    }
-                    // Dodaj więcej samochodów według potrzeb
+                        ModelName = "Tesla Model 3",
+                        PriceForDay = 120
+                    },
+                    new Car
+                    {
+                        Id = Guid.NewGuid(),
+                        ModelName = "Tesla Model X",
+                        PriceForDay = 140
+                    },
+                    new Car
+                    {
+                        Id = Guid.NewGuid(),
+                        ModelName = "Tesla Model Y",
+                        PriceForDay = 150
+                    },
+                     new Car
+                    {
+                        Id = Guid.NewGuid(),
+                        ModelName = "Tesla CyberPunk",
+                        PriceForDay = 140
+                    }, 
+                     new Car
+                     {
+                         Id = Guid.NewGuid(),
+                         ModelName = "Roadster",
+                         PriceForDay = 166
+                     }
                 };
                 context.Cars.AddRange(cars);
 

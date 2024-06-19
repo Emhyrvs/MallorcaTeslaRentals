@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MallorcaTeslaRentals.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20240617091112_AddClientModel")]
-    partial class AddClientModel
+    [Migration("20240619200956_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,9 @@ namespace MallorcaTeslaRentals.Migrations
                     b.Property<string>("ModelName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PriceForDay")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -112,6 +115,9 @@ namespace MallorcaTeslaRentals.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalCost")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
