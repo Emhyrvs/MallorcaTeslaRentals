@@ -26,26 +26,26 @@ public class ReservationService : IReservationService
 
     public async Task<Reservation> CreateReservationAsync(Reservation request)
     {
-        // Sprawdzenie czy istnieje klient o danym PersonalIdentificationNumber
+       
         Client client = _context.Clients.FirstOrDefault(a => a.PersonalIdentificationNumber == request.Client.PersonalIdentificationNumber);
 
         if (client == null)
         {
-            // Jeśli klient nie istnieje, stwórz nowego klienta
+         
             client = new Client
             {
                 Id = Guid.NewGuid(),
                 PersonalIdentificationNumber = request.Client.PersonalIdentificationNumber,
-                Name = request.Client.Name, // Przykładowe przypisanie dodatkowych właściwości klienta
-                LastName = request.Client.LastName,   // Możesz dodać inne właściwości w razie potrzeby
+                Name = request.Client.Name, 
+                LastName = request.Client.LastName,  
                PhoneNumber = request.Client.PhoneNumber
             };
 
-            // Dodaj nowego klienta do kontekstu
+          
             _context.Clients.Add(client);
         }
 
-        // Stwórz nową rezerwację i przypisz istniejące lub nowo utworzone obiekty
+        
         var reservation = new Reservation
         {
             Id = Guid.NewGuid(),
@@ -54,18 +54,18 @@ public class ReservationService : IReservationService
             EndDate = request.EndDate,
             StartDate = request.StartDate,
             CarId = request.Car.Id,
-            ClientId = client.Id, // Przypisz Id klienta (nowego lub istniejącego)
-            Client = client, // Przypisz klienta do rezerwacji
+            ClientId = client.Id, 
+            Client = client, 
             TotalCost = request.TotalCost,
         };
 
-        // Dodaj rezerwację do kontekstu
+       
         _context.Reservations.Add(reservation);
 
-        // Zapisz zmiany w bazie danych
+       
         await _context.SaveChangesAsync();
 
-        // Zwróć stworzoną rezerwację
+        
         return reservation;
     }
 
@@ -78,8 +78,7 @@ public class ReservationService : IReservationService
             return null;
         }
 
-        // Update fields from request
-        // e.g., reservation.StartDate = request.StartDate, etc.
+      
 
         await _context.SaveChangesAsync();
 
